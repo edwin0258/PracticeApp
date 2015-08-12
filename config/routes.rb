@@ -16,6 +16,7 @@ get 'register' => 'users#new'
 resources :posts do
   member do
     post 'favorite'
+    post 'comment'
   end
 end
 get 'new' => 'posts#new'

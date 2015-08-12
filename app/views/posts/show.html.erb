@@ -8,3 +8,24 @@
 	<hr>
 	<b>By: </b><%= link_to @post.user.username, user_path(@post.user) %>
 </div>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+	<div class="well">Comments</div>
+	<div class="well">
+		<% @post.comments.each do |comment| %>
+		<div class="well">
+			<%= comment.title %><br>
+		</div>
+			<%= comment.body %><br><hr>
+			<%= link_to comment.user.username, user_path(comment.user) %><br>
+		<% end %>
+	</div>
+	<div class="well">Comment on this post</div>
+	<div class="well">
+		<%= form_tag(comment_post_path, :method => 'post')do %>
+			<%= text_field_tag "title", nil, placeholder: "Title" %><br>
+			<%= text_area_tag "body", nil, rows: 10, placeholder: "Comment"%><br>
+			<%= submit_tag "Comment", class: "btn btn-success" %>
+		<% end %>
+	</div>
+</div>

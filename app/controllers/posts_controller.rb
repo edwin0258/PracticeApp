@@ -35,6 +35,18 @@ class PostsController < ApplicationController
 		redirect_to :back
 	end
 
+	def comment
+		@user = User.find(current_user)
+		@post = Post.find(params[:id])
+		comment = Comment.create(title: params[:title], body: params[:body], user: @user, post: @post)
+		if comment.valid?
+			flash[:success] = "Comment Posted"
+		else
+			flash[:danger] = "Comment Invalid"
+		end
+		redirect_to :back
+	end
+
 	private
 		def post_params
 			params.require(:post).permit(:title,:summary,:body)
