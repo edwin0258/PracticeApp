@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_action :user?, only: [:new]
+
 	def index
 		@posts = Post.all
 	end
@@ -36,6 +38,13 @@ class PostsController < ApplicationController
 	private
 		def post_params
 			params.require(:post).permit(:title,:summary,:body)
+		end
+
+		def user?
+			unless current_user
+				flash[:danger] = "You must be logged in"
+				redirect_to root_path
+			end
 		end
 
 end

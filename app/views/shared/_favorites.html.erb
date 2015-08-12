@@ -1,10 +1,12 @@
-<span>
-	<%= link_to favorite_post_path(obj, favorite: true),method: :post do%>
-		<% if current_user.favorites.find_by(post: obj) %>
-			<i class="glyphicon glyphicon-heart"></i>
-		<% else %>
-			<i class="glyphicon glyphicon-heart-empty"></i>
+<% if logged_in? %>
+	<span>
+		<%= link_to favorite_post_path(obj, favorite: true),method: :post do%>
+			<% if current_user.favorites.find_by(post: obj) %>
+				<i class="glyphicon glyphicon-heart"></i>
+			<% else %>
+				<i class="glyphicon glyphicon-heart-empty"></i>
+			<% end %>
 		<% end %>
-	<% end %>
 
-</span>
+	</span>
+<% end %>
