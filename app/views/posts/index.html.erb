@@ -1,1 +1,4 @@
-<h1>Posts</h1>
+<h1>Posts<span>- <%= link_to "Create One!",new_post_path, class: "btn btn-success" %></h1>
+<% @posts.each do |post| %>
+<%= post.title %>
+<% end %>

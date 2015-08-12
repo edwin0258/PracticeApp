@@ -1,0 +1,9 @@
+<h1>Create Post</h1>
+<div class="well">
+<%= form_for(@post) do |f| %>
+	<%= f.text_field :title, :placeholder => "title" %><hr>
+	<%= f.text_field :summary, :placeholder => "summary" %><hr>
+	<%= f.text_area :body, rows: 10, :placeholder => "Content/Body" %><hr>
+	<%= f.submit "Post", class: "btn btn-success" %>
+<% end %>
+</div>
