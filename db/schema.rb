@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811235016) do
+ActiveRecord::Schema.define(version: 20150812034752) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.boolean  "favorite"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string  "title"

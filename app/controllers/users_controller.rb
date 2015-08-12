@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+	def show
+		@user = User.find(params[:id])
+		@posts = @user.posts
+		@favorites = @user.favorites
+	end
 	def new
 		@user = User.new
 	end

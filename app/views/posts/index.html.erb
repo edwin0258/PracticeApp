@@ -4,9 +4,9 @@
 		<% @posts.each do |post| %>
 		<div class="well">
 			<div class="well">
-				<%= link_to post.title, post_path(post) %>
+				<%= link_to post.title, post_path(post) %><%= render 'shared/favorites', obj: post %>
 			</div><hr>
-				<b>By: </b><%= post.user.name %>
+				<b>By: </b><%= link_to post.user.username, user_path(post.user) %>
 
 		</div>
 		<% end %>

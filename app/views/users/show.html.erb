@@ -1,0 +1,39 @@
+<h1 class="text-center"><%= @user.username %></h1>
+<hr>
+<div class="row">
+	<div class="col-md-3">
+		<div class="well text-center">
+			<p><%= @user.username %>'s Favorites</p>
+		</div>
+		<% @user.favorites.each do |favorite| %>
+			<div class="well">
+				<%= favorite.post.title %><%= render 'shared/favorites', obj: favorite.post %>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-md-6">
+		<div class="well text-center">
+			<p><%= @user.username %>'s Posts</p>
+		</div> 
+		<% @posts.each do |post| %>
+			<div class="well">
+				<div class="well">
+					<%= post.title %>
+				</div>
+				<%= post.summary %>
+				<hr>
+				<%= post.body %>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-md-3">
+		<div class="well text-center">
+			<p><%= @user.username %>'s Favorites</p>
+		</div>
+		<% @user.favorites.each do |favorite| %>
+			<div class="well">
+				<%= favorite.post.title %><%= render 'shared/favorites', obj: favorite.post %>
+			</div>
+		<% end %>
+	</div>
+</div>

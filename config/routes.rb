@@ -13,7 +13,11 @@ get 'logout' => 'sessions#destroy'
 
 resources :users, except: [:new, :destroy]
 get 'register' => 'users#new'
-resources :posts
+resources :posts do
+  member do
+    post 'favorite'
+  end
+end
 get 'new' => 'posts#new'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

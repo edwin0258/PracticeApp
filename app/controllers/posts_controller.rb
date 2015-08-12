@@ -19,6 +19,20 @@ class PostsController < ApplicationController
 		end
 	end
 
+
+	def favorite
+		@user = User.find(current_user)
+		@post = Post.find(params[:id])
+		favorite = Favorite.create(favorite: params[:favorite], user: @user, post: @post)
+		if favorite.valid?
+			flash[:success] = "Post Favorited"
+		else
+			flash[:danger] = "Post Unfavorited"
+			favorite = Favorite.find_by(post_id: @post).destroy
+		end
+		redirect_to :back
+	end
+
 	private
 		def post_params
 			params.require(:post).permit(:title,:summary,:body)
