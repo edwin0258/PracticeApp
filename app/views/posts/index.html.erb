@@ -1,4 +1,14 @@
 <h1>Posts<span>- <%= link_to "Create One!",new_post_path, class: "btn btn-success" %></h1>
-<% @posts.each do |post| %>
-<%= post.title %>
-<% end %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<% @posts.each do |post| %>
+		<div class="well">
+			<div class="well">
+				<%= link_to post.title, post_path(post) %>
+			</div><hr>
+				<b>By: </b><%= post.user.name %>
+
+		</div>
+		<% end %>
+	</div>
+</div>
