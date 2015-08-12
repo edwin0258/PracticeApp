@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ .comment-well{
+ 	color:#199;
+ 	font-family: 'Lobster', cursive;
+ 	font-size: 20px;
+ 	background-image: url('http://subtlepatterns.com/patterns/swirl_pattern.png');
+ }

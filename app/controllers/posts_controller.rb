@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :user?, only: [:new]
+	before_action :user?, only: [:new, :favorite, :comment, :create]
 
 	def index
 		@posts = Post.all
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 			flash[:success] = "Post Favorited"
 		else
 			flash[:danger] = "Post Unfavorited"
-			favorite = Favorite.find_by(post_id: @post).destroy
+			favorite = @user.favorites.find_by(post_id: @post).destroy
 		end
 		redirect_to :back
 	end

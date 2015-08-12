@@ -10,17 +10,18 @@
 </div>
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
-	<div class="well">Comments</div>
-	<div class="well">
+	<div class="well comment-well">Comments</div>
 		<% @post.comments.each do |comment| %>
 		<div class="well">
-			<%= comment.title %><br>
-		</div>
-			<%= comment.body %><br><hr>
-			<%= link_to comment.user.username, user_path(comment.user) %><br>
+			<div class="well">
+				<%= comment.title %><br>
+			</div>
+				<%= comment.body %><br><hr>
+				<%= link_to comment.user.username, user_path(comment.user) %><br>
+			</div>
 		<% end %>
-	</div>
-	<div class="well">Comment on this post</div>
+
+	<div class="well comment-well">Comment on this post</div>
 	<div class="well">
 		<%= form_tag(comment_post_path, :method => 'post')do %>
 			<%= text_field_tag "title", nil, placeholder: "Title" %><br>

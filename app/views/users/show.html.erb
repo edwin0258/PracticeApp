@@ -7,7 +7,7 @@
 		</div>
 		<% @user.favorites.each do |favorite| %>
 			<div class="well">
-				<%= favorite.post.title %><%= render 'shared/favorites', obj: favorite.post %>
+				<%= link_to favorite.post.title, post_path(favorite.post) %><%= render 'shared/favorites', obj: favorite.post %>
 			</div>
 		<% end %>
 	</div>
@@ -32,7 +32,7 @@
 		</div>
 		<% @user.favorites.each do |favorite| %>
 			<div class="well">
-				<%= favorite.post.title %><%= render 'shared/favorites', obj: favorite.post %>
+				<%= link_to favorite.post.title, post_path(favorite.post) %><%= render 'shared/favorites', obj: favorite.post %>
 			</div>
 		<% end %>
 	</div>
