@@ -1,4 +1,10 @@
-<h1 class="text-center"><%= @user.username %></h1>
+<h1 class="text-center"><%= @user.username %>
+	<% if current_user.following?(@user)%>
+		<%= render 'shared/unfollow' %>
+	<% else %>
+		<%= render 'shared/follow' %>
+	<% end %>
+</h1>
 <hr>
 <div class="row">
 	<div class="col-md-3">

@@ -1,0 +1,7 @@
+<% if logged_in? %>
+	<% if current_user.id != @user.id %>
+		<%= form_for(current_user.active_relationships.find_by(followed_id: @user.id), html: {method: :delete}) do |f| %>
+		<div><%= f.submit "Unfollow", class: "btn btn-info" %></div>
+		<% end %>
+	<% end %>
+<% end %>
