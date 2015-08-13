@@ -40,6 +40,8 @@ GEM
     bcrypt (3.1.10-x86-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -115,7 +117,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sprockets (3.2.0)
+    sprockets (3.3.0)
       rack (~> 1.0)
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)
@@ -129,7 +131,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2015.5)
+    tzinfo-data (1.2015.6)
       tzinfo (>= 1.0.0)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
@@ -139,12 +141,14 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    will_paginate (3.0.7)
 
 PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bootstrap-will_paginate (= 0.0.10)
   byebug
   coffee-script-source (= 1.8.0)
   jbuilder (~> 2.0)
@@ -157,3 +161,4 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  will_paginate (= 3.0.7)

@@ -11,7 +11,8 @@
 		<div class="well text-center">
 			<p><%= @user.username %>'s Favorites</p>
 		</div>
-		<% @user.favorites.each do |favorite| %>
+		<%= will_paginate @favorites, :param_name => "favorites_page" %>
+		<% @favorites.each do |favorite| %>
 			<div class="well">
 				<%= link_to favorite.post.title, post_path(favorite.post) %><%= render 'shared/favorites', obj: favorite.post %>
 			</div>
@@ -21,6 +22,7 @@
 		<div class="well text-center">
 			<p><%= @user.username %>'s Posts</p>
 		</div> 
+		<%= will_paginate @posts, :param_name => "posts_page" %>
 		<% @posts.each do |post| %>
 			<div class="well">
 				<div class="well">
