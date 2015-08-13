@@ -28,11 +28,19 @@
 	</div>
 	<div class="col-md-3">
 		<div class="well text-center">
-			<p><%= @user.username %>'s Favorites</p>
+			<p><%= @user.username %>'s Followers</p>
 		</div>
-		<% @user.favorites.each do |favorite| %>
+		<% @followers.each do |follower| %>
 			<div class="well">
-				<%= link_to favorite.post.title, post_path(favorite.post) %><%= render 'shared/favorites', obj: favorite.post %>
+				<%= link_to follower.username, user_path(follower) %>
+			</div>
+		<% end %>
+		<div class="well text-center">
+			<p><%= @user.username %>'s Followings</p>
+		</div>
+		<% @followings.each do |following| %>
+			<div class="well">
+				<%= link_to following.username, user_path(following)%>
 			</div>
 		<% end %>
 	</div>
