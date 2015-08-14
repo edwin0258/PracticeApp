@@ -1,15 +1,20 @@
 class MessagesController < ApplicationController
 	def new
+		@message = current_user.active_messages.new
 	end
 	def index
 		@active_messages = current_user.active_messages
 		@passive_messages = current_user.passive_messages
 	end
 	def create
-		user = User.find(params[:receiver_id])
-		current_user.message(user)
+		@message = current_user.active_messages.create(message_params)
 		flash[:success] = "Message Sent"
 		redirect_to :back
 	end
+
+	private
+		def message_params
+			params.require(:message).permit(:title,:summary,:body,:receiver_id)
+		end
 
 end

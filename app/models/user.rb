@@ -39,9 +39,6 @@ class User < ActiveRecord::Base
 		following.include?(other_user)
 	end
 
-	def message(other_user)
-		active_messages.create(receiver_id: other_user.id)
-	end
 	
 
 	has_secure_password

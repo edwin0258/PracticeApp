@@ -1,6 +1,12 @@
+<%= link_to 'Message a user!', new_message_path, class: "btn btn-info" %><hr>
 <div class="well comment-well">Messages</div>
 <% @passive_messages.each do |message| %>
-	<%= message.title %>
+	<div class="well">
+	<%= message.title %><hr>
+	<%= message.summary %><br>
+	<%= message.body %><hr>
+	<%= message.sender.username %>
+</div>
 <% end %>
 <div class="well comment-well">Sent Messages</div>
 <% @active_messages.each do |message| %>
@@ -8,6 +14,6 @@
 	<%= message.title %><hr>
 	<%= message.summary %><br>
 	<%= message.body %><hr>
-	<%= message.sender.username %>
+	<%= message.receiver.username %>
 </div>
 <% end %>
