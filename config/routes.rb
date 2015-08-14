@@ -12,6 +12,9 @@ get 'logout' => 'sessions#destroy'
 
 
 resources :users, except: [:new, :destroy]
+resources :messages
+
+
 get 'register' => 'users#new'
 resources :posts do
   member do

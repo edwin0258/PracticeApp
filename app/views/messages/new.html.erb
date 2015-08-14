@@ -1,0 +1,8 @@
+<h1>Message a user</h1>
+	<%= form_for(current_user.active_messages.build) do |f| %>
+		<%= f.text_field :title, :placeholder => "title" %>
+		<%= f.text_field :summary, :placeholder => "summary"  %>
+		<%= f.text_area :body, rows: 10, :placeholder => "Body/Content"  %>
+		<%= f.text_field :receiver_id %>
+		<%= f.submit "Message", class: "btn btn-success" %>
+	<% end %>

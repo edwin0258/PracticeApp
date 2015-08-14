@@ -1,0 +1,13 @@
+<div class="well comment-well">Messages</div>
+<% @passive_messages.each do |message| %>
+	<%= message.title %>
+<% end %>
+<div class="well comment-well">Sent Messages</div>
+<% @active_messages.each do |message| %>
+<div class="well">
+	<%= message.title %><hr>
+	<%= message.summary %><br>
+	<%= message.body %><hr>
+	<%= message.sender.username %>
+</div>
+<% end %>

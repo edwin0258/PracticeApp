@@ -21,7 +21,14 @@ class User < ActiveRecord::Base
 	has_many :following, through: :active_relationships, source: :followed
 	has_many :followers, through: :passive_relationships, source: :follower
 
-
+	has_many :active_messages, class_name: "Message",
+								foreign_key: "sender_id",
+								dependent: :destroy
+	has_many :passive_messages, class_name: "Message",
+								foreign_key: "receiver_id",
+								dependent: :destroy
+	has_many :sent_messages, through: :active_messages, source: :receiver
+	has_many :messages, through: :passive_messages, source: :sender
 	def follow(other_user)
 		active_relationships.create(followed_id: other_user.id)
 	end
@@ -32,7 +39,10 @@ class User < ActiveRecord::Base
 		following.include?(other_user)
 	end
 
-
+	def message(other_user)
+		active_messages.create(receiver_id: other_user.id)
+	end
+	
 
 	has_secure_password
 end

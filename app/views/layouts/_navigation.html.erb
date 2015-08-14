@@ -4,6 +4,7 @@
 <%= link_to "Profile", user_path(current_user), class: "btn btn-info" %>
 <%= current_user.username %>
 <%= link_to "Logout", logout_path, class: "btn btn-info" %>
+<%= link_to "Messages", messages_path, class: "btn btn-info" %>
 <% else %>
 <%= link_to "Home", root_path, class: "btn btn-info" %>
 <%= link_to "Login", login_path, class: "btn btn-info" %>
