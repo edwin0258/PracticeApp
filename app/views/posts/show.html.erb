@@ -6,7 +6,8 @@
 	<hr>
 	<%= @post.body %>
 	<hr>
-	<b>By: </b><%= link_to @post.user.username, user_path(@post.user) %>
+	<div class="well"><%= image_tag(@post.image_url,height: '300' ) if @post.image? %></div>
+	<b>By: </b><%= link_to @post.user.username, user_path(@post.user)%>
 </div>
 <div class="row">
 <div class="col-md-6 col-md-offset-3">

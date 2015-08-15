@@ -6,4 +6,5 @@ class Post < ActiveRecord::Base
 	validates :summary, presence: true, length: {maximum: 150, mimimum: 5}
 	validates :body, presence: true, length: {maximum: 1000, minimum: 10}
 	validates :user_id, presence: true
+	mount_uploader :image, ImageUploader
 end

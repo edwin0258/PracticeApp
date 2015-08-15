@@ -1,9 +1,12 @@
 <h1>Create Post</h1>
 <div class="well">
-<%= form_for(@post) do |f| %>
+<%= form_for @post, :html => {:multipart => true} do |f| %>
 	<%= f.text_field :title, :placeholder => "title" %><hr>
 	<%= f.text_field :summary, :placeholder => "summary" %><hr>
 	<%= f.text_area :body, rows: 10, :placeholder => "Content/Body" %><hr>
+	<%= f.file_field :image, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+	<%= f.label :remote_image_url, "or image url" %><br>
+	<%= f.text_field :remote_image_url %>
 	<%= f.submit "Post", class: "btn btn-success" %>
 <% end %>
 </div>
