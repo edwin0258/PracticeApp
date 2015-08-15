@@ -11,6 +11,13 @@ class MessagesController < ApplicationController
 		flash[:success] = "Message Sent"
 		redirect_to :back
 	end
+	def destroy
+		@message = current_user.active_messages.find(params[:id])
+		@message.destroy
+		flash[:danger] = "Message Deleted"
+		redirect_to :back
+	end
+
 
 	private
 		def message_params

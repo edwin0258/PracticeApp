@@ -6,6 +6,7 @@
 	<%= message.summary %><br>
 	<%= message.body %><hr>
 	<%= message.sender.username %>
+	<%= link_to "Delete", message_path(message), :confirm => "Are you sure?", :method => :delete %>
 </div>
 <% end %>
 <div class="well comment-well">Sent Messages</div>
