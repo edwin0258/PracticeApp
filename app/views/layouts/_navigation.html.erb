@@ -1,6 +1,6 @@
 <div class="well">
 <% if logged_in? %>
-<%= link_to "Home", posts_path, class: "btn btn-info" %>
+<%= link_to "Home", newposts_path, class: "btn btn-info" %>
 <%= link_to "Profile", user_path(current_user), class: "btn btn-info" %>
 <%= current_user.username %>
 <%= link_to "Logout", logout_path, class: "btn btn-info" %>

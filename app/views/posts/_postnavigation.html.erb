@@ -1,0 +1,12 @@
+<div class="well posts_navigation">
+<li><%= link_to "Newest", newposts_path, class: "btn btn-info" %></li>
+<li><%= link_to "Most Popular", popularposts_path, class: "btn btn-info" %></li>
+<li><%= form_tag popularposts_path, :method => 'get' do %>
+	<p>
+		<%= submit_tag "Search", :name => nil, class: "btn btn-info" %>
+		<%= text_field_tag :search, params[:search] %>
+	</p>
+<% end %>
+</li>
+</span>
+</div>

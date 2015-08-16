@@ -1,8 +1,14 @@
 class PostsController < ApplicationController
 	before_action :user?, only: [:new, :favorite, :comment, :create]
 
-	def index
-		@posts = Post.paginate(:page => params[:page], :per_page => 2)
+	def newest_index
+		@posts = Post.paginate(:page => params[:page], :per_page => 2).order("created_at DESC")
+	end
+	def popular_index
+		@posts = Kaminari.paginate_array(Post.all.sort_by{|post| post.favorites.size}.reverse).page(params[:page]).per(2)
+		if params[:search]
+			@posts = Post.where(' title LIKE ? ', "%#{params[:search]}%").page(params[:page])
+		end
 	end
 	def show
 		@post = Post.find(params[:id])

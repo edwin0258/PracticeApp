@@ -7,4 +7,8 @@ class Post < ActiveRecord::Base
 	validates :body, presence: true, length: {maximum: 1000, minimum: 10}
 	validates :user_id, presence: true
 	mount_uploader :image, ImageUploader
+	
+	def favorite_total
+		self.favorites.where(favorite: true).size
+	end
 end

@@ -23,6 +23,8 @@ resources :posts do
   end
 end
 get 'new' => 'posts#new'
+get 'newposts' => 'posts#newest_index'
+get 'popularposts' => 'posts#popular_index'
 resources :relationships, only: [:create, :destroy]
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

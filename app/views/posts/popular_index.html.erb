@@ -1,0 +1,16 @@
+<%= render 'posts/postnavigation' %>
+<h1>Posts<span>-<% if logged_in? %> <%= link_to "Create One!",new_post_path, class: "btn btn-success" %><% end %></h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+<%= will_paginate @posts %>
+	<% @posts.each do |post| %>
+		<div class="well">
+			<div class="well">
+				<%= link_to post.title, post_path(post) %><%= render 'shared/favorites', obj: post %>
+			</div><hr>
+				<b>By: </b><%= link_to post.user.username, user_path(post.user) %>
+
+		</div>
+		<% end %>
+	</div>
+</div>

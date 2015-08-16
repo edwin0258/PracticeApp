@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814225729) do
+ActiveRecord::Schema.define(version: 20150815220747) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "title"
@@ -45,11 +45,13 @@ ActiveRecord::Schema.define(version: 20150814225729) do
   add_index "messages", ["sender_id"], name: "index_messages_on_sender_id"
 
   create_table "posts", force: :cascade do |t|
-    t.string  "title"
-    t.text    "summary"
-    t.text    "body"
-    t.integer "user_id"
-    t.string  "image"
+    t.string   "title"
+    t.text     "summary"
+    t.text     "body"
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "relationships", force: :cascade do |t|
