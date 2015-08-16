@@ -8,7 +8,8 @@
 			<div class="well">
 				<%= link_to post.title, post_path(post) %><%= render 'shared/favorites', obj: post %>
 			</div><hr>
-				<b>By: </b><%= link_to post.user.username, user_path(post.user) %>
+				<b>By: </b><%= link_to post.user.username, user_path(post.user) %><br>
+				<b>Updated: </b><% if post.updated_at %><%= time_ago_in_words(post.updated_at)%> <span>ago</span> <% end %>
 
 		</div>
 		<% end %>
