@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 	def popular_index
 		@posts = Kaminari.paginate_array(Post.all.sort_by{|post| post.favorites.size}.reverse).page(params[:page]).per(2)
 		if params[:search]
-			@posts = Post.where(' title LIKE ? ', "%#{params[:search]}%").page(params[:page])
+			@posts = Post.where(' title LIKE ? ', "%#{params[:search]}%").paginate(:page => params[:page], :per_page => 2)
 		end
 	end
 	def show
